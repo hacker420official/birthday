@@ -716,6 +716,7 @@ div.love-message { font-family: 'Great Vibes', cursive !important; }
   </style>
 </head>
 <body>
+  <audio id="birthdayAudio" src="birthdaysong.mp3" loop autoplay></audio>
   <div id="butterfly-lottie"></div>
 <script src=""></script>
 <script>
@@ -777,8 +778,8 @@ lottie.loadAnimation({
     <div id="confetti-container"></div>
     <!-- Animated Floating Gifts -->
     <div id="floating-gifts"></div>
-    <h1 style="margin-top:50px; color:#e94560;">Your Special Birthday Gift!</h1>
-    <div class="subtitle">A box full of love, wishes, and surprises for you!</div>
+    <h1 style="margin-top:50px; color:#e94560;">Happy boirthday my cute beastie </h1>
+    <div class="subtitle">OPEN A GIFT BOX!🎁🎉</div>
     <!-- Realistic Animated Gift Box -->
     <div class="real-gift-box-area" style="display: flex; justify-content: center; margin: 36px 0;">
       <div class="real-gift-box" id="realGiftBox">
@@ -824,13 +825,8 @@ lottie.loadAnimation({
     </div>
   </div>
   
-  <audio title="M" controls autoplay hidden><source 
-        src="birthdaysong.mp3" 
-        type="audio/mpeg"
-        
-        />
+ 
 
-    </audio>
 
 
   <script>
@@ -1037,6 +1033,17 @@ function goToPage(pageNum) {
 // Initial load
 document.addEventListener('DOMContentLoaded', function() {
   showBalloons(true);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const audio = document.getElementById('birthdayAudio');
+  if (audio) {
+    audio.play().catch(() => {
+      // If autoplay is blocked, start on any user interaction
+      document.body.addEventListener('click', () => audio.play(), { once: true });
+    });
+  }
 });
 </script>
   <h2>                       LOVE YOU SO MUCH                </h2>
